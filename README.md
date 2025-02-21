@@ -18,5 +18,5 @@ source .venv/bin/activate
 
 Simulate a model with mujoco:
 ```
-./mujoco_simulate_mjcf.py --mjcf=mujoco_menagerie/franka_fr3/scene.xml
+./mujoco_simulate_mjcf.py --mjcf=mujoco_menagerie/unitree_go2/scene.xml
 ```

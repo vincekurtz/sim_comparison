@@ -2,7 +2,7 @@
 
 ##
 #
-# Simulate a user-provide model in mujoco xml format using mujoco.
+# Simulate a user-provided model in mujoco xml format using mujoco (CPU).
 #
 ##
 
