@@ -4,9 +4,6 @@
 #
 # Simulate a user-provided model in mujoco xml format using drake.
 #
-# See https://github.com/RobotLocomotion/drake/blob/master/multibody/parsing/test/detail_mujoco_parser_examples_test.cc
-# for a list of which menagerie models are fully supported.
-#
 ##
 
 import argparse
@@ -69,6 +66,7 @@ plant.Finalize()
 if args.hydroelastic:
     sg_config = SceneGraphConfig()
     sg_config.default_proximity_properties.compliance_type = "compliant"
+    sg_config.default_proximity_properties.slab_thickness = 0.1
     scene_graph.set_config(sg_config)
 
 if args.visualize:

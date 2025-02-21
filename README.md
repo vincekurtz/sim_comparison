@@ -20,3 +20,15 @@ Simulate a model with mujoco:
 ```
 ./mujoco_simulate_mjcf.py --mjcf=mujoco_menagerie/unitree_go2/scene.xml
 ```
+
+## Working Menagerie Models
+
+Not all Menagerie models are compatible with Drake. Here are some that work OK.
+
+- `unitree_go2/scene.xml`
+    - Starts with feet inside the ground, so Drake yeets it skyward.
+- `unitree_go2/scene_mjx.xml`
+- `universal_robots_ur5e/scene.xml`
+- `universal_robots_ur10e/scene.xml`
+    - MuJoCo dynamics are notably more jittery at dt=`0.005`s.
+- `kuka_iiwa_14/scene.xml`
