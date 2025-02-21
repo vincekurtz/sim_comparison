@@ -21,6 +21,11 @@ Simulate a model with mujoco:
 ./mujoco_simulate_mjcf.py --mjcf=mujoco_menagerie/unitree_go2/scene.xml
 ```
 
+Simulate a model with mjx:
+```
+./mjx_simulate_mjcf.py --mjcf=mujoco_menagerie/unitree_go2/scene_mjx.xml --num_envs=3
+```
+
 ## Working Menagerie Models
 
 Not all Menagerie models are compatible with Drake. Here are some that work OK.
