@@ -2,3 +2,6 @@ drake
 mujoco
 jax[cuda12]
 mujoco-mjx
+torch
+torchvision
+genesis-world

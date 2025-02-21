@@ -17,7 +17,7 @@ import time
 import os
 os.environ["XLA_FLAGS"] = "--xla_gpu_triton_gemm_any=true"
 
-def run_experiments(mjcf, num_envs, sim_time, time_step):
+def run_simulation(mjcf, num_envs, sim_time, time_step):
     # Load the model
     model = mujoco.MjModel.from_xml_path(mjcf)
     model.opt.timestep = time_step
@@ -66,7 +66,6 @@ def run_experiments(mjcf, num_envs, sim_time, time_step):
     real_time_rate = sim_time / wall_time * num_envs
     fps = (sim_time / time_step) / wall_time * num_envs
 
-    # Print some statistics
     print(f"Wall time: {wall_time:.4f} seconds")
     print(f"Real-time rate: {real_time_rate:.4f}x")
     print(f"FPS: {fps:.4f}")
@@ -103,7 +102,7 @@ if __name__=="__main__":
     )
     args = parser.parse_args()
 
-    run_experiments(
+    run_simulation(
         args.mjcf,
         args.num_envs,
         args.sim_time,

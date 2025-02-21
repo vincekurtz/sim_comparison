@@ -12,7 +12,7 @@ import mujoco.viewer
 import time
 
 
-def run_experiments(mjcf, visualize, sim_time, time_step):
+def run_simulation(mjcf, visualize, sim_time, time_step):
     # Load the model
     model = mujoco.MjModel.from_xml_path(mjcf)
     model.opt.timestep = time_step
@@ -58,7 +58,6 @@ def run_experiments(mjcf, visualize, sim_time, time_step):
     real_time_rate = sim_time / wall_time
     fps = (sim_time / time_step) / wall_time
 
-    # Print some statistics
     print(f"Wall time: {wall_time:.4f} seconds")
     print(f"Real-time rate: {real_time_rate:.4f}x")
     print(f"FPS: {fps:.4f}")
@@ -99,6 +98,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Run the simulation
-    wall_time, real_time_rate, fps = run_experiments(
+    wall_time, real_time_rate, fps = run_simulation(
         args.mjcf, args.visualize, args.sim_time, args.time_step
     )
