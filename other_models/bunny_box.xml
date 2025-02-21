@@ -1,0 +1,25 @@
+<mujoco model="clutter">
+  <option cone="elliptic" />
+  <asset>
+    <mesh name="bunny_mesh" file="bunny.obj"/>
+  </asset>
+  <worldbody>
+    <geom name="base" type="box" pos="0.0 0.0 0.0" size="1.0 1.0 0.05" rgba="1.0 1.0 1.0 0.3"/>
+    <geom name="left" type="box" pos="1.0 0.0 0.5" size="0.05 1.0 0.5" rgba="1.0 1.0 1.0 0.3"/>
+    <geom name="right" type="box" pos="-1.0 0.0 0.5" size="0.05 1.0 0.5" rgba="1.0 1.0 1.0 0.3"/>
+    <geom name="front" type="box" pos="0.0 1.0 0.5" size="1.0 0.05 0.5" rgba="1.0 1.0 1.0 0.3"/>
+    <geom name="back" type="box" pos="0.0 -1.0 0.5" size="1.0 0.05 0.5" rgba="1.0 1.0 1.0 0.3"/>
+    <body>
+      <joint type="free"/>
+      <geom name="bunny1" type="mesh" pos="0.0 0.0 0.8" mesh="bunny_mesh"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="bunny2" type="mesh" pos="0.0 0.0 2.0" mesh="bunny_mesh"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="bunny3" type="mesh" pos="0.0 0.0 3.2" mesh="bunny_mesh"/>
+    </body>
+  </worldbody>
+</mujoco>
