@@ -26,7 +26,11 @@ Simulate a model with mjx:
 ./mjx_simulate_mjcf.py --mjcf=mujoco_menagerie/unitree_go2/scene_mjx.xml --num_envs=3
 ```
 
-## Working Menagerie Models
+Run a script with `--help` to see other options.
+
+To run an automatic comparison and make plots, see `compare.py`
+
+## Models
 
 Not all Menagerie models are compatible with Drake. Here are some that work OK.
 
@@ -37,3 +41,6 @@ Not all Menagerie models are compatible with Drake. Here are some that work OK.
 - `universal_robots_ur10e/scene.xml`
     - MuJoCo dynamics are notably more jittery at dt=`0.005`s.
 - `kuka_iiwa_14/scene.xml`
+
+Other models that are compatable with all the sims are in the `other_models`
+directory.
