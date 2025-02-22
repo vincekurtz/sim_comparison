@@ -82,7 +82,7 @@ def collect_data(fname="simulation_results.csv"):
         # "UR10e": "mujoco_menagerie/universal_robots_ur10e/scene.xml",
         "Kuka IIWA": "mujoco_menagerie/kuka_iiwa_14/scene.xml",
         "Spheres in a box": "other_models/sphere_box.xml",
-        "Meshes in a box": "other_models/bunny_box.xml",
+        "Bunny meshes in a box": "other_models/bunny_box.xml",
         "Complicated scene": "other_models/complicated_scene.xml",
     }
     time_steps = [0.01, 0.001]
@@ -131,9 +131,25 @@ def plot_data(fname="simulation_results.csv"):
     models = df["Model"].unique()
     time_steps = df["Time Step"].unique()
 
-    # Make subplots for each model and each timestep
-    fig, axs = plt.subplots(len(models), len(time_steps), figsize=(10, 20), sharey=True)
+    # Make subplots for each model and each timestep, + a column for images
+    fig, axs = plt.subplots(len(models), len(time_steps)+1, figsize=(15, 20), width_ratios=[0.5, 1, 1])
 
+    # First axes are images of the models
+    images = {
+        "Unitree Go2": "img/go2.png",
+        "Kuka IIWA": "img/kuka.png",
+        "Spheres in a box": "img/sphere_box.png",
+        "Bunny meshes in a box": "img/bunny_box.png",
+        "Complicated scene": "img/complicated_scene.png",
+    }
+    for (i, model) in enumerate(models):
+        img = plt.imread(images[model])
+        axs[i, 0].imshow(img)
+        axs[i, 0].set_ylabel(model)
+        axs[i, 0].set_xticks([])
+        axs[i, 0].set_yticks([])
+
+    # Read data from the CSV file and plot it
     for model in models:
         for time_step in time_steps:
             for simulator in simulators:
@@ -142,35 +158,31 @@ def plot_data(fname="simulation_results.csv"):
 
                 # Get the real-time rate and put it on a bar chart
                 if mask.any():
-                    # If there are multiple matching data points, take the first one
-                    # (there should only be one)
                     rtr = df.loc[mask, "Real-Time Rate"].values[0]
                 else:
+                    # Missing data (OOM error, or otherwise failed simulation)
                     rtr = 0.0
-
-                print(model, time_step, simulator)
                 
-                axs[models.tolist().index(model), time_steps.tolist().index(time_step)].bar(simulator, rtr)
+                axs[models.tolist().index(model), time_steps.tolist().index(time_step)+1].bar(simulator, rtr)
 
     # On the top row, set the title to the time step
     for i, time_step in enumerate(time_steps):
-        axs[0, i].set_title(f"Time Step: {time_step}")
+        axs[0, i+1].set_title(f"Time Step: {time_step}")
 
-    # On the first column, set the title to the model name
-    for i, model in enumerate(models):
-        axs[i, 0].set_ylabel(model)
+    # Iterate over the axes that are not in the first column
+    for i in range(len(models)):
+        for j in range(1, len(time_steps)+1):
+            axs[i,j].tick_params(axis="x", rotation=65)
+            axs[i,j].set_yscale("log")
+            axs[i,j].yaxis.grid(True, which="both", color="gray", alpha=0.5)
+            axs[i,j].set_ylabel("Real-Time Rate")
 
-    for ax in axs.flat:
-        # Rotate the x-axis labels
-        ax.tick_params(axis="x", rotation=45)
+            if i == 4:
+                # Tighter limits on last axis
+                axs[i,j].set_ylim((1e-1, 1e1))
+            else:
+                axs[i,j].set_ylim((1e0, 1e5))
 
-        # Use log scale for the y-axis
-        ax.set_yscale("log")
-
-        # Use a grid on the y axis
-        ax.yaxis.grid(True, which="both", color="gray", alpha=0.5)
-
-    plt.suptitle("Simulator Real-Time Rates")
     plt.tight_layout()
     plt.show()
 
