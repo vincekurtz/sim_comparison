@@ -12,8 +12,8 @@ from genesis_simulate_mjcf import run_simulation as genesis_run
 from mjx_simulate_mjcf import run_simulation as mjx_run
 import pandas as pd
 import matplotlib.pyplot as plt
+import importlib
 
-# Genesis initialization is weird and needs to be done only once        
 import genesis as gs
 gs.init(backend=gs.gpu, logging_level="warning")
 
@@ -44,6 +44,7 @@ def run_mjx_32(mjcf, time_step):
     )[1]
 
 def run_mjx_4096(mjcf, time_step):
+
     return mjx_run(
         mjcf=mjcf,
         num_envs=4096,
@@ -52,23 +53,23 @@ def run_mjx_4096(mjcf, time_step):
     )[1]
 
 def run_genesis_32(mjcf, time_step):
+    importlib.reload(gs)
     return genesis_run(
         mjcf=mjcf,
         num_envs=32,
         sim_time=10.0,
         time_step=time_step,
         visualize=False,
-        init=False,
     )[1]
 
 def run_genesis_4096(mjcf, time_step):
+    importlib.reload(gs)
     return genesis_run(
         mjcf=mjcf,
         num_envs=4096,
         sim_time=10.0,
         time_step=time_step,
         visualize=False,
-        init=False,
     )[1]
 
 def collect_data(fname="simulation_results.csv"):
@@ -82,7 +83,7 @@ def collect_data(fname="simulation_results.csv"):
         "Spheres in a box": "other_models/sphere_box.xml",
         "Bunny meshes in a box": "other_models/bunny_box.xml",
     }
-    time_steps = [0.01, 0.005, 0.001]
+    time_steps = [0.01, 0.001]
     simulators = {
         "Drake": run_drake,
         "Mujoco": run_mujoco,
@@ -104,12 +105,10 @@ def collect_data(fname="simulation_results.csv"):
                     if model_name == "Bunny meshes in a box":
                         print("Skipping bunny meshes for MJX.")
                         continue
-                try:
-                    rtr = func(model, time_step)
-                    with open(fname, "a") as f:
-                        f.write(f"{name},{model_name},{model},{time_step},{rtr}\n")
-                except Exception as e:
-                    print(e)
+
+                rtr = func(model, time_step)
+                with open(fname, "a") as f:
+                    f.write(f"{name},{model_name},{model},{time_step},{rtr}\n")
 
 def plot_data(fname="simulation_results.csv"):
     """Plot the data collected from the simulations."""
@@ -151,5 +150,5 @@ def plot_data(fname="simulation_results.csv"):
 
 
 if __name__=="__main__":
-    # collect_data()
+    collect_data()
     plot_data()

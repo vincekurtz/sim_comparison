@@ -11,10 +11,9 @@ import genesis as gs
 import time
 
 
-def run_simulation(mjcf, visualize, num_envs, sim_time, time_step, init=True):
+def run_simulation(mjcf, visualize, num_envs, sim_time, time_step):
     # Simulator setup
-    if init:
-        gs.init(backend=gs.gpu, logging_level="warning")
+    gs.init(backend=gs.gpu, logging_level="warning")
     scene = gs.Scene(
         show_viewer=visualize, sim_options=gs.options.SimOptions(dt=time_step)
     )

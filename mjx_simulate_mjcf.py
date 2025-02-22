@@ -24,6 +24,13 @@ def run_simulation(mjcf, num_envs, sim_time, time_step):
     model.opt.disableactuator = (
         1  # disable actuators so the robot falls freely
     )
+
+    # MJX-specific optimizations
+    model.opt.iterations = 1
+    model.opt.ls_iterations = 6
+    model.opt.enableflags = mujoco.mjtDisableBit.mjDSBL_EULERDAMP
+    model.opt.cone = mujoco.mjtCone.mjCONE_PYRAMIDAL
+
     data = mujoco.MjData(model)
     
     print(
