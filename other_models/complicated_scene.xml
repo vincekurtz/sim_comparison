@@ -1,0 +1,171 @@
+<mujoco model="complicated_scene">
+  <option integrator="implicitfast" cone="elliptic" />
+  <default>
+    <geom solimp="0.0 0.95 0.01" solref="0.001 1.0"/>
+  </default>
+
+  <asset>
+    <mesh name="bunny_mesh" file="bunny.obj"/>
+  </asset>
+
+  <worldbody>
+    <!-- A box to hold everything -->
+    <geom name="base" type="box" pos="0.0 0.0 -0.05" size="2.0 2.0 0.05" rgba="1.0 1.0 1.0 0.3"/>
+    <geom name="left" type="box" pos="2.0 0.0 1.0" size="0.05 2.0 1.0" rgba="1.0 1.0 1.0 0.3"/>
+    <geom name="right" type="box" pos="-2.0 0.0 1.0" size="0.05 2.0 1.0" rgba="1.0 1.0 1.0 0.3"/>
+    <geom name="front" type="box" pos="0.0 2.0 1.0" size="2.0 0.05 1.0" rgba="1.0 1.0 1.0 0.3"/>
+    <geom name="back" type="box" pos="0.0 -2.0 1.0" size="2.0 0.05 1.0" rgba="1.0 1.0 1.0 0.3"/>
+
+    <!-- We'll just repeat a stack of bunny, sphere, box a bunch of times -->
+    <body>
+      <joint type="free"/>
+      <geom name="bunny1" type="mesh" pos="1.0 1.0 0.5" mesh="bunny_mesh"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="sphere1" type="sphere" pos="1.0 1.2 1.0" size="0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="box1" type="box" pos="1.0 1.0 1.5" size="0.2 0.2 0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="bunny2" type="mesh" pos="1.0 1.0 2.5" mesh="bunny_mesh"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="sphere2" type="sphere" pos="1.0 1.2 3.0" size="0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="box2" type="box" pos="1.0 1.0 3.5" size="0.2 0.2 0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="bunny3" type="mesh" pos="1.0 1.0 4.5" mesh="bunny_mesh"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="sphere3" type="sphere" pos="1.0 1.2 5.0" size="0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="box3" type="box" pos="1.0 1.0 5.5" size="0.2 0.2 0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+
+    <!-- Stack in the opposite corner -->
+    <body>
+      <joint type="free"/>
+      <geom name="bunny4" type="mesh" pos="-1.0 -1.0 0.5" mesh="bunny_mesh"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="sphere4" type="sphere" pos="-1.0 -0.8 1.0" size="0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="box4" type="box" pos="-1.0 -1.0 1.5" size="0.2 0.2 0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="bunny5" type="mesh" pos="-1.0 -1.0 2.5" mesh="bunny_mesh"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="sphere5" type="sphere" pos="-1.0 -0.8 3.0" size="0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="box5" type="box" pos="-1.0 -1.0 3.5" size="0.2 0.2 0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="bunny6" type="mesh" pos="-1.0 -1.0 4.5" mesh="bunny_mesh"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="sphere6" type="sphere" pos="-1.0 -0.8 5.0" size="0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="box6" type="box" pos="-1.0 -1.0 5.5" size="0.2 0.2 0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+
+    <!-- Stack in another corner -->
+    <body>
+      <joint type="free"/>
+      <geom name="bunny7" type="mesh" pos="1.0 -1.0 0.5" mesh="bunny_mesh"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="sphere7" type="sphere" pos="1.0 -0.8 1.0" size="0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="box7" type="box" pos="1.0 -1.0 1.5" size="0.2 0.2 0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="bunny8" type="mesh" pos="1.0 -1.0 2.5" mesh="bunny_mesh"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="sphere8" type="sphere" pos="1.0 -0.8 3.0" size="0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="box8" type="box" pos="1.0 -1.0 3.5" size="0.2 0.2 0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="bunny9" type="mesh" pos="1.0 -1.0 4.5" mesh="bunny_mesh"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="sphere9" type="sphere" pos="1.0 -0.8 5.0" size="0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="box9" type="box" pos="1.0 -1.0 5.5" size="0.2 0.2 0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+
+    <!-- Stack in the last corner -->
+    <body>
+      <joint type="free"/>
+      <geom name="bunny10" type="mesh" pos="-1.0 1.0 0.5" mesh="bunny_mesh"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="sphere10" type="sphere" pos="-1.0 1.2 1.0" size="0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="box10" type="box" pos="-1.0 1.0 1.5" size="0.2 0.2 0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="bunny11" type="mesh" pos="-1.0 1.0 2.5" mesh="bunny_mesh"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="sphere11" type="sphere" pos="-1.0 1.2 3.0" size="0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="box11" type="box" pos="-1.0 1.0 3.5" size="0.2 0.2 0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="bunny12" type="mesh" pos="-1.0 1.0 4.5" mesh="bunny_mesh"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="sphere12" type="sphere" pos="-1.0 1.2 5.0" size="0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+    <body>
+      <joint type="free"/>
+      <geom name="box12" type="box" pos="-1.0 1.0 5.5" size="0.2 0.2 0.2" rgba="1.0 1.0 1.0 1.0"/>
+    </body>
+  </worldbody>
+</mujoco>

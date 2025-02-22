@@ -43,3 +43,6 @@ Drake,Bunny meshes in a box,other_models/bunny_box.xml,0.001,5.902819665745046
 Mujoco,Bunny meshes in a box,other_models/bunny_box.xml,0.001,23.012940411558308
 Genesis (32 envs),Bunny meshes in a box,other_models/bunny_box.xml,0.001,17.13853597113598
 Genesis (4096 envs),Bunny meshes in a box,other_models/bunny_box.xml,0.001,1676.0027642354326
+Drake,Complicated scene,other_models/complicated_scene.xml,0.001,0.30830763205064676
+Mujoco,Complicated scene,other_models/complicated_scene.xml,0.001,2.185700406279436
+Genesis (32 envs),Complicated scene,other_models/complicated_scene.xml,0.001,0.27985590568907676

@@ -13,6 +13,7 @@ from mjx_simulate_mjcf import run_simulation as mjx_run
 import pandas as pd
 import matplotlib.pyplot as plt
 import importlib
+import numpy as np
 
 import genesis as gs
 gs.init(backend=gs.gpu, logging_level="warning")
@@ -81,7 +82,8 @@ def collect_data(fname="simulation_results.csv"):
         # "UR10e": "mujoco_menagerie/universal_robots_ur10e/scene.xml",
         "Kuka IIWA": "mujoco_menagerie/kuka_iiwa_14/scene.xml",
         "Spheres in a box": "other_models/sphere_box.xml",
-        "Bunny meshes in a box": "other_models/bunny_box.xml",
+        "Meshes in a box": "other_models/bunny_box.xml",
+        "Complicated scene": "other_models/complicated_scene.xml",
     }
     time_steps = [0.01, 0.001]
     simulators = {
@@ -101,9 +103,19 @@ def collect_data(fname="simulation_results.csv"):
             for name, func in simulators.items():
                 print(f"==> Running {name} on {model_name} with time step {time_step}...")
 
+                # MJX breaks on bunny meshes
                 if name == "MJX (32 envs)" or name == "MJX (4096 envs)":
                     if model_name == "Bunny meshes in a box":
                         print("Skipping bunny meshes for MJX.")
+                        continue
+
+                # For the complicated scene we only run dt=0.001, and skip MJX
+                if model_name == "Complicated scene":
+                    if time_step == 0.01:
+                        print("Skipping dt=0.01 for complicated scene.")
+                        continue
+                    if name == "MJX (32 envs)" or name == "MJX (4096 envs)":
+                        print("Skipping MJX for complicated scene.")
                         continue
 
                 rtr = func(model, time_step)
@@ -120,7 +132,7 @@ def plot_data(fname="simulation_results.csv"):
     time_steps = df["Time Step"].unique()
 
     # Make subplots for each model and each timestep
-    fig, axs = plt.subplots(len(models), len(time_steps), figsize=(10, 15), sharey=True)
+    fig, axs = plt.subplots(len(models), len(time_steps), figsize=(10, 20), sharey=True)
 
     for model in models:
         for time_step in time_steps:
@@ -133,7 +145,12 @@ def plot_data(fname="simulation_results.csv"):
                     # If there are multiple matching data points, take the first one
                     # (there should only be one)
                     rtr = df.loc[mask, "Real-Time Rate"].values[0]
-                    axs[models.tolist().index(model), time_steps.tolist().index(time_step)].bar(simulator, rtr)
+                else:
+                    rtr = 0.0
+
+                print(model, time_step, simulator)
+                
+                axs[models.tolist().index(model), time_steps.tolist().index(time_step)].bar(simulator, rtr)
 
     # On the top row, set the title to the time step
     for i, time_step in enumerate(time_steps):
@@ -142,7 +159,16 @@ def plot_data(fname="simulation_results.csv"):
     # On the first column, set the title to the model name
     for i, model in enumerate(models):
         axs[i, 0].set_ylabel(model)
-        axs[i, 0].set_yscale("log")
+
+    for ax in axs.flat:
+        # Rotate the x-axis labels
+        ax.tick_params(axis="x", rotation=45)
+
+        # Use log scale for the y-axis
+        ax.set_yscale("log")
+
+        # Use a grid on the y axis
+        ax.yaxis.grid(True, which="both", color="gray", alpha=0.5)
 
     plt.suptitle("Simulator Real-Time Rates")
     plt.tight_layout()
@@ -150,5 +176,5 @@ def plot_data(fname="simulation_results.csv"):
 
 
 if __name__=="__main__":
-    collect_data()
+    # collect_data()
     plot_data()
