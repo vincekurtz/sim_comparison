@@ -1,35 +1,45 @@
 Simulator,Model,Model File,Time Step,Real-Time Rate
-Drake,Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,85.85121429521753
-Mujoco,Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,326.58797147039587
-MJX (32 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,47.22073976189396
-Genesis (32 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,579.1860102332362
-MJX (4096 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,4687.846576255118
-Genesis (4096 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,53372.24499103259
-Drake,Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,8.47445250902593
-Mujoco,Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,37.109031952683665
-MJX (32 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,4.790075680265608
-Genesis (32 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,55.62176065205621
-MJX (4096 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,462.589552358025
-Genesis (4096 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,5062.006272810508
-Drake,Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.01,106.55069047159363
-Mujoco,Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.01,957.2539711520906
-MJX (32 envs),Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.01,102.69438293839602
-Genesis (32 envs),Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.01,754.6537091784583
-MJX (4096 envs),Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.01,5484.530054559677
-Genesis (4096 envs),Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.01,85291.30421227073
-Drake,Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.001,12.700094501960136
-Mujoco,Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.001,103.56203889344303
-MJX (32 envs),Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.001,10.541266604022743
-Genesis (32 envs),Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.001,69.93755120216775
-MJX (4096 envs),Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.001,534.5686567669419
-Genesis (4096 envs),Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.001,9004.172917704955
-Drake,Spheres in a box,other_models/sphere_box.xml,0.01,77.79705972912114
-Mujoco,Spheres in a box,other_models/sphere_box.xml,0.01,753.0844779603196
-MJX (32 envs),Spheres in a box,other_models/sphere_box.xml,0.01,65.90548908426156
-Genesis (32 envs),Spheres in a box,other_models/sphere_box.xml,0.01,327.78035072260894
-MJX (4096 envs),Spheres in a box,other_models/sphere_box.xml,0.01,506.20777767005967
-Genesis (4096 envs),Spheres in a box,other_models/sphere_box.xml,0.01,27790.31382750107
-Drake,Spheres in a box,other_models/sphere_box.xml,0.001,6.838930882236406
-Mujoco,Spheres in a box,other_models/sphere_box.xml,0.001,80.2756044157952
-MJX (32 envs),Spheres in a box,other_models/sphere_box.xml,0.001,0.4454679546163558
-Genesis (32 envs),Spheres in a box,other_models/sphere_box.xml,0.001,20.305213308802468
+Drake,Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,93.72034303538949
+Mujoco,Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,344.7618734485196
+MJX (32 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,48.448330579867964
+Genesis (32 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,585.1540818479707
+MJX (4096 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,4534.936044376403
+Genesis (4096 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,53131.337410684246
+Drake,Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,9.327586260576169
+Mujoco,Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,39.543202578701205
+MJX (32 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,4.9684294128611475
+Genesis (32 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,55.5861244380776
+MJX (4096 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,444.9785858641219
+Genesis (4096 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,5071.528486192422
+Drake,Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.01,112.60148567347936
+Mujoco,Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.01,1039.8155539579047
+MJX (32 envs),Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.01,103.60767058656428
+Genesis (32 envs),Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.01,741.7442282015686
+MJX (4096 envs),Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.01,4798.2154033048055
+Genesis (4096 envs),Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.01,86178.34832269473
+Drake,Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.001,13.44798022386026
+Mujoco,Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.001,107.4355151869099
+MJX (32 envs),Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.001,10.946996026806092
+Genesis (32 envs),Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.001,76.33101286235167
+MJX (4096 envs),Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.001,473.9645270549509
+Genesis (4096 envs),Kuka IIWA,mujoco_menagerie/kuka_iiwa_14/scene.xml,0.001,9248.246512111393
+Drake,Spheres in a box,other_models/sphere_box.xml,0.01,88.53449513243328
+Mujoco,Spheres in a box,other_models/sphere_box.xml,0.01,813.1647925552539
+MJX (32 envs),Spheres in a box,other_models/sphere_box.xml,0.01,248.80236208678681
+Genesis (32 envs),Spheres in a box,other_models/sphere_box.xml,0.01,325.734262645472
+MJX (4096 envs),Spheres in a box,other_models/sphere_box.xml,0.01,15843.935479093177
+Genesis (4096 envs),Spheres in a box,other_models/sphere_box.xml,0.01,27540.523084760855
+Drake,Spheres in a box,other_models/sphere_box.xml,0.001,7.078442153540095
+Mujoco,Spheres in a box,other_models/sphere_box.xml,0.001,77.17508864187944
+MJX (32 envs),Spheres in a box,other_models/sphere_box.xml,0.001,25.461208711955553
+Genesis (32 envs),Spheres in a box,other_models/sphere_box.xml,0.001,20.653347119904158
+MJX (4096 envs),Spheres in a box,other_models/sphere_box.xml,0.001,1570.9005899928757
+Genesis (4096 envs),Spheres in a box,other_models/sphere_box.xml,0.001,1862.9510173422
+Drake,Bunny meshes in a box,other_models/bunny_box.xml,0.01,35.15322897643127
+Mujoco,Bunny meshes in a box,other_models/bunny_box.xml,0.01,188.2584438609484
+Genesis (32 envs),Bunny meshes in a box,other_models/bunny_box.xml,0.01,275.3464876316621
+Genesis (4096 envs),Bunny meshes in a box,other_models/bunny_box.xml,0.01,27307.75177922961
+Drake,Bunny meshes in a box,other_models/bunny_box.xml,0.001,5.902819665745046
+Mujoco,Bunny meshes in a box,other_models/bunny_box.xml,0.001,23.012940411558308
+Genesis (32 envs),Bunny meshes in a box,other_models/bunny_box.xml,0.001,17.13853597113598
+Genesis (4096 envs),Bunny meshes in a box,other_models/bunny_box.xml,0.001,1676.0027642354326
