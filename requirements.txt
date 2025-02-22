@@ -5,3 +5,5 @@ mujoco-mjx
 torch
 torchvision
 genesis-world
+pandas
+matplotlib

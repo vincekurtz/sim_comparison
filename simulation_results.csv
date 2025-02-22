@@ -1,0 +1,24 @@
+Simulator,Model,Model File,Time Step,Real-Time Rate
+Drake,Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,87.1820859410888
+Mujoco,Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,336.4486940897132
+MJX (32 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,48.43179578482524
+MJX (4096 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,4382.322988642554
+Genesis (32 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,456.4272519771368
+Genesis (4096 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.01,52198.741946049544
+Drake,Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.005,46.33412502899815
+Mujoco,Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.005,161.54368180435142
+MJX (32 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.005,23.289969909758774
+MJX (4096 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.005,2325.6861515435676
+Genesis (32 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.005,296.6538855641912
+Genesis (4096 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.005,27322.617819349045
+Drake,Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,8.677147448681517
+Mujoco,Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,38.579522877452206
+MJX (32 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,4.7390872565403654
+MJX (4096 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,461.81674100153845
+Genesis (32 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,53.814392374024294
+Genesis (4096 envs),Unitree Go2,mujoco_menagerie/unitree_go2/scene_mjx.xml,0.001,5074.113990041311
+Drake,UR5e,mujoco_menagerie/universal_robots_ur5e/scene.xml,0.01,127.79602867737346
+Mujoco,UR5e,mujoco_menagerie/universal_robots_ur5e/scene.xml,0.01,794.6466598461597
+MJX (32 envs),UR5e,mujoco_menagerie/universal_robots_ur5e/scene.xml,0.01,52.58785772749374
+MJX (4096 envs),UR5e,mujoco_menagerie/universal_robots_ur5e/scene.xml,0.01,2975.504257679384
+Genesis (32 envs),UR5e,mujoco_menagerie/universal_robots_ur5e/scene.xml,0.01,693.465380911244

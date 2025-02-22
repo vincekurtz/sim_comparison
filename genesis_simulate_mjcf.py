@@ -11,20 +11,24 @@ import genesis as gs
 import time
 
 
-def run_simulation(mjcf, visualize, num_envs, sim_time, time_step):
+def run_simulation(mjcf, visualize, num_envs, sim_time, time_step, init=True):
     # Simulator setup
-    gs.init(backend=gs.gpu)
+    if init:
+        gs.init(backend=gs.gpu, logging_level="warning")
     scene = gs.Scene(
         show_viewer=visualize, sim_options=gs.options.SimOptions(dt=time_step)
     )
 
     # Add the model
     robot = scene.add_entity(gs.morphs.MJCF(file=mjcf))
-    scene.build(n_envs=num_envs, env_spacing=(1.0, 1.0))
 
     # Make sure the first step is compiled (tbh not sure if Genesis jitting
     # works this way or not, but just to be safe...)
+    print("Jitting step function...")
+    st = time.time()
+    scene.build(n_envs=num_envs, env_spacing=(1.0, 1.0))
     scene.step()
+    print(f"Done jitting in {time.time() - st:.2f} seconds.")
 
     # Run the sm
     t = 0.0

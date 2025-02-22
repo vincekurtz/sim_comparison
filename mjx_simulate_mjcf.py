@@ -46,12 +46,13 @@ def run_simulation(mjcf, num_envs, sim_time, time_step):
     )(rng)
 
     # Define a jitted step function
-    jit_step = jax.jit(jax.vmap(mjx.step, in_axes=(None, 0)))
+    jit_step = jax.jit(jax.vmap(mjx.step, in_axes=(None, 0)), donate_argnums=(1,))
 
     # Do the jit compilation before we take timing stats
     print("Jitting step function...")
     st = time.time()
-    jit_step(mjx_model, batch)
+    batch = jit_step(mjx_model, batch)
+    batch = jit_step(mjx_model, batch)  # for some reason the second call is not compiled
     print(f"Done jitting in {time.time() - st:.2f} seconds.")
 
     t = 0.0

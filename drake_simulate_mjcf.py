@@ -41,14 +41,14 @@ def run_simulation(xml_file, visualize, sim_time, hydroelastic, time_step):
 
     # Initialize the simulator
     simulator = Simulator(diagram)
-    if args.visualize:
+    if visualize:
         simulator.set_target_realtime_rate(1.0)
         simulator.set_publish_every_time_step(True)
     simulator.Initialize()
 
     # Wait for meshcat to be ready
     print(f"Simulating a {plant.num_positions()} DoF model for {sim_time} seconds with dt={time_step}...")
-    if args.visualize:
+    if visualize:
         input("Press [ENTER] to continue...")
 
     # Run the simulation
@@ -67,7 +67,7 @@ def run_simulation(xml_file, visualize, sim_time, hydroelastic, time_step):
     print(f"FPS: {fps:.4f}")
 
     # Wait for meshcat to publish the recording
-    if args.visualize:
+    if visualize:
         input("Press [ENTER] to exit...")
 
     return wall_time, rtr, fps
