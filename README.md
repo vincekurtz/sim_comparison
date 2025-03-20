@@ -9,6 +9,8 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+Install mujoco warp following `https://github.com/google-deepmind/mujoco_warp`
+
 ## Usage
 
 Enter the virtual env
@@ -24,6 +26,11 @@ Simulate a model with mujoco:
 Simulate a model with mjx:
 ```
 ./mjx_simulate_mjcf.py --mjcf=mujoco_menagerie/unitree_go2/scene_mjx.xml --num_envs=3
+```
+
+Simulate a model with mujoco warp:
+```
+./mjwarp_simulate_mjcf.py --mjcf=other_models/humanoid.xml --num_envs=3
 ```
 
 Run a script with `--help` to see other options.

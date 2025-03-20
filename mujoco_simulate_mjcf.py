@@ -30,12 +30,18 @@ def run_simulation(mjcf, visualize, sim_time, time_step):
         # Set up real-time-ish sim with the interactive visualizer
         start_time = time.time()
 
+        times = []
+        solver_iters = []
         with mujoco.viewer.launch_passive(model, data) as viewer:
             while data.time < sim_time and viewer.is_running():
                 st = time.time()
 
                 # Step the simulation
                 mujoco.mj_step(model, data)
+
+                # Log the number of solver iterations
+                times.append(data.time)
+                solver_iters.append(sum(data.solver_niter))
 
                 # Update the viewer
                 viewer.sync()
@@ -46,6 +52,17 @@ def run_simulation(mjcf, visualize, sim_time, time_step):
                     time.sleep(model.opt.timestep - step_time)
 
         wall_time = time.time() - start_time
+
+        import matplotlib.pyplot as plt
+        plt.title("Mujoco Solver Iterations, Spheres in a Box")
+        plt.xlabel("Time Step")
+        plt.ylabel("Solver Iterations")
+        plt.plot(solver_iters, "o")
+
+        print("Total solver iterations:", sum(solver_iters))
+        print("Total time steps:", len(solver_iters))
+
+        plt.show()
 
     else:
         # Simulate headless and as fast as possible
