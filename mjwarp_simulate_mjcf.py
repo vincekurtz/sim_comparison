@@ -60,8 +60,8 @@ def run_simulation(mjcf, num_envs, sim_time, time_step):
     start_time = time.time()
     while t < sim_time:
         wp.capture_launch(graph)
-        wp.synchronize()
         t += time_step
+    wp.synchronize()
     wall_time = time.time() - start_time
 
     # Calculate statistics

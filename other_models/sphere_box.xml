@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mujoco model="clutter">
 
-  <option integrator="implicitfast" cone="elliptic" />
+    <!--<option integrator="implicitfast" cone="elliptic" />-->
 
   <default>
     <geom solimp="0.9 0.95 0.001" solref="0.01 1"/>
