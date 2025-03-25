@@ -53,17 +53,6 @@ def run_simulation(mjcf, visualize, sim_time, time_step):
 
         wall_time = time.time() - start_time
 
-        import matplotlib.pyplot as plt
-        plt.title("Mujoco Solver Iterations, Spheres in a Box")
-        plt.xlabel("Time Step")
-        plt.ylabel("Solver Iterations")
-        plt.plot(solver_iters, "o")
-
-        print("Total solver iterations:", sum(solver_iters))
-        print("Total time steps:", len(solver_iters))
-
-        plt.show()
-
     else:
         # Simulate headless and as fast as possible
         start_time = time.time()
