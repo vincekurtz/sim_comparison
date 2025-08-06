@@ -17,27 +17,20 @@ simulation_app = SimulationApp({"headless": False}) # we can also run as headles
 import time
 from isaacsim.core.api import SimulationContext
 from isaacsim.core.utils.prims import create_prim
-from isaacsim.core.utils.stage import add_reference_to_stage, is_stage_loading
+import isaacsim.core.utils.stage as stage_utils
 
 # This loads the model, but it's rotated 90 degrees
 # asset_path = "./other_models/bunny.usd"
 # robot = add_reference_to_stage(usd_path=asset_path, prim_path="/World")
 
-import isaacsim.core.utils.stage as stage_utils
-stage_utils.open_stage("./other_models/bunny.usd")
+stage = stage_utils.open_stage("./other_models/bunnies_rotated.usd")
 
-# Set y-is-up for the stage
-from pxr import UsdGeom
-stage = stage_utils.get_current_stage()
-UsdGeom.SetStageUpAxis(stage, UsdGeom.Tokens.z)
-
-
-
+# Create the simulation context
 simulation_context = SimulationContext()
-create_prim("/DistantLight", "DistantLight")
+
 # wait for things to load
 simulation_app.update()
-while is_stage_loading():
+while stage_utils.is_stage_loading():
     simulation_app.update()
 
 # need to initialize physics getting any articulation..etc
