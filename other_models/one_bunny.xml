@@ -1,0 +1,11 @@
+<mujoco model="clutter">
+  <asset>
+    <mesh name="bunny_mesh" file="bunny.obj"/>
+  </asset>
+  <worldbody>
+    <body>
+      <joint type="free"/>
+      <geom name="bunny1" type="mesh" pos="0.0 0.0 0.8" mesh="bunny_mesh"/>
+    </body>
+  </worldbody>
+</mujoco>

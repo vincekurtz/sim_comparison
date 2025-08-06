@@ -93,6 +93,18 @@ To visualize a sim with mjwarp physics:
 python -m mujoco_warp.viewer --mjcf=path/to/model.xml
 ```
 
+### Isaac Sim
+
+In the venv, install isaac sim version 4.5:
+```
+pip install isaacsim[all]==4.5.0 --extra-index-url https://pypi.nvidia.com
+```
+
+Run a quick hello world example, which should drop a box on the ground:
+```
+./isaac_hello_world.py
+```
+
 ## Models
 
 Not all Menagerie models are compatible with Drake. Here are some that work OK:

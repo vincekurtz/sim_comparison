@@ -44,6 +44,8 @@ def run_simulation(xml_file, visualize, sim_time, hydroelastic, time_step):
     if visualize:
         simulator.set_target_realtime_rate(1.0)
         simulator.set_publish_every_time_step(True)
+    else:
+        simulator.set_publish_every_time_step(False)
     simulator.Initialize()
 
     # Wait for meshcat to be ready

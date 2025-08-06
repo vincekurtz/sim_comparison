@@ -23,10 +23,10 @@ def run_simulation(mjcf, num_envs, sim_time, time_step):
     )
 
     # MJX-style optimizations
-    model.opt.iterations = 1
-    model.opt.ls_iterations = 6
-    model.opt.enableflags = mujoco.mjtDisableBit.mjDSBL_EULERDAMP
-    model.opt.cone = mujoco.mjtCone.mjCONE_PYRAMIDAL
+    #model.opt.iterations = 1
+    #model.opt.ls_iterations = 6
+    #model.opt.enableflags = mujoco.mjtDisableBit.mjDSBL_EULERDAMP
+    #model.opt.cone = mujoco.mjtCone.mjCONE_PYRAMIDAL
 
     data = mujoco.MjData(model)
 
@@ -42,7 +42,7 @@ def run_simulation(mjcf, num_envs, sim_time, time_step):
 
     # Convert to mjwarp
     warp_model = mjwarp.put_model(model)
-    warp_data = mjwarp.put_data(model, data, nworld=num_envs)
+    warp_data = mjwarp.put_data(model, data, nworld=num_envs, njmax=16)
 
     # JIT compile
     print("Jitting step function...")
