@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-visualize = False
+visualize = True
 
 # Need to run this before other isaac sim imports
 from isaacsim import SimulationApp

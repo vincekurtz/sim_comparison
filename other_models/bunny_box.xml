@@ -1,5 +1,5 @@
 <mujoco model="clutter">
-  <option cone="elliptic" />
+  <option cone="elliptic" timestep="0.01"/>
   <asset>
     <mesh name="bunny_mesh" file="bunny.obj"/>
   </asset>
