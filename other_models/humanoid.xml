@@ -14,7 +14,8 @@
 -->
 
 <mujoco model="Humanoid">
-  <option timestep="0.005" iterations="10" ls_iterations="20">
+  <!-- <option timestep="0.005" iterations="10" ls_iterations="20"> -->
+  <option timestep="0.01">
     <flag eulerdamp="disable"/>
   </option>
 
