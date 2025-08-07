@@ -42,7 +42,8 @@ def run_simulation(mjcf, num_envs, sim_time, time_step):
 
     # Convert to mjwarp
     warp_model = mjwarp.put_model(model)
-    warp_data = mjwarp.put_data(model, data, nworld=num_envs, njmax=16)
+    warp_model.opt.ls_parallel = 1
+    warp_data = mjwarp.put_data(model, data, nworld=num_envs, njmax=64)
 
     # JIT compile
     print("Jitting step function...")
