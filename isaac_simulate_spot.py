@@ -11,7 +11,7 @@ from isaacsim.core.api import SimulationContext
 import isaacsim.core.utils.stage as stage_utils
 
 # Load a scene that we created with the GUI (via MJCF import)
-stage = stage_utils.open_stage("./other_models/humanoid.usd")
+stage = stage_utils.open_stage("./other_models/spot.usd")
 
 # Set up the simulation
 simulation_context = SimulationContext()
@@ -25,14 +25,14 @@ simulation_context.play()
 time_step = 0.001
 simulation_context.set_simulation_dt(physics_dt=time_step, rendering_dt=time_step)
 
-num_steps = int(10/time_step)  # run for 10 seconds
+num_steps = int(3/time_step)  # run for 3 seconds
 st = time.time()
 for i in range(num_steps):
     simulation_context.step(render=visualize)
 
 wall_time = time.time() - st
 print("Wall time:", wall_time)
-print("RTR:", (10/wall_time))
+print("RTR:", (3/wall_time))
 
 simulation_context.stop()
 simulation_app.close()
